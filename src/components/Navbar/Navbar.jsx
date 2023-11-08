@@ -1,19 +1,26 @@
 import "./style.css";
-import { Button } from "react-bootstrap";
-import CartWidget from "../CartWidget/CartWidget";
+import {Link} from "react-router-dom";
+
 const Navbar = () => {
     return  (
-        <div className="navbar-container">
+        <div>
             <div>
                 <img alt="logo Espacio Jardín" src={`./img/logo.jpg`}/>
             </div>
-            <div>
+            <nav>
                 <ul className="list-container">
-                    <li><button className="category-button">Plantas</button></li>
-                    <li><button className="category-button">Accesorios</button></li>
+                    <li className="navbar-texto">
+                        <Link to={"/categoria/plantas"} className="category-button">
+                        Plantas
+                        </Link>
+                    </li>
+                    <li className="navbar-texto">
+                        <Link to={"/categoria/accesorios"} className="category-button">
+                            Accesorios
+                        </Link>
+                    </li>
                 </ul>
-            </div>
-            <CartWidget/>
+            </nav>
         </div>
     );
 };

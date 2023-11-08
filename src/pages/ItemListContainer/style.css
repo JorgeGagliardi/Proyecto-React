@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Italianno-Regular";
+    src: url("./Italianno-Regular.ttf"); /* Fuente almacenada en forma local */
+}
+.titulo-texto {
+    font-family: "Italianno-Regular";
+    font-weight: bold;
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: darkgreen;
+}

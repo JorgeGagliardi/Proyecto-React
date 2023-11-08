@@ -1,21 +1,33 @@
+@font-face {
+    font-family: "Italianno-Regular";
+    src: url("./Italianno-Regular.ttf"); /* Fuente almacenada en forma local */
+}
 .navbar-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content:space-between;
 }
 .list-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    justify-content: flex-end;
+    width: 90%;
     list-style-type: none;
 }
 .category-button {
     background-color: transparent;
     border: none;
     color: #006400;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     cursor: pointer;
+    text-decoration: none;
+}
+.navbar-texto {
+    font-family: "Italianno-Regular";
+    margin-left: 20px;
+    font-size: 36px;
+    font-weight: bold;
+    color: darkgreen;
+    text-decoration: none;
 }
