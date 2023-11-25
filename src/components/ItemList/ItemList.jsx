@@ -3,17 +3,19 @@ import "./style.css";
 
 import Item from "../Item/Item";
 
-const ItemList = ({productList}) => {
+const ItemList = ({productsL}) => {
   return (
     <div className="item-list-container">
-      {productList.map((product) => (
+      {productsL?.map((product) => (
         <div key={product.id}>
+          <Link to={"/item/" + product.id}>
           <Item
             title={product.categoria}
             description={product.nombre}
             price={product.precio}
             image={product.imagen}
           />
+        </Link>
         </div>
       ))}
     </div>

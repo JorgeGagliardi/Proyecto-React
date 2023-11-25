@@ -1,18 +1,20 @@
 import "./style.css";
 
-const ItemDetail = ({ itemSelected }) => {
-return (
-    <div>
-        <h6 className="card-title">{itemSelected?.nombre}</h6>
-        <img src={itemSelected?.image} alt={itemSelected?.alt} width={70} />
-        <div className="card-description">
-            <p>{itemSelected?.detalle}</p>
-        </div>
 
-        <p>{itemSelected?.precio}</p>
-    </div>
-);
-};
+const ItemDetail = ({title, nombre, price, alt, image, detalle}) => {
+    return (
+      <div>
+        <div>
+          <img src={image} alt={alt} width={240}/>
+        </div>
+        <h3 className="card-title">{nombre}</h3>
+        <h3 className="card-title">$ {price}</h3>
+        <div>
+          <p className="card-title">{detalle}</p>
+        </div>
+      </div>
+    );
+  };
 
 export default ItemDetail
 

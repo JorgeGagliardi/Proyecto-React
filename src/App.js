@@ -8,6 +8,7 @@ import ItemDetailContainer from "./pages/ItemDetailContainer/ItemDetailContainer
 
 function App() {
   return (
+
     <BrowserRouter>
       <Navbar />
       <Routes>
@@ -16,7 +17,8 @@ function App() {
         <Route path="/item/:id" element={<ItemDetailContainer />} />
       </Routes>
     </BrowserRouter>
-    );
+
+  );
 }
 
 export default App;

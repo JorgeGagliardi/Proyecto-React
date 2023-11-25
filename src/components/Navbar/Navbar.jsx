@@ -5,17 +5,24 @@ const Navbar = () => {
     return  (
         <div>
             <div>
-                <img alt="logo Espacio Jardín" src={`./img/logo.jpg`}/>
+                <Link to={"/"}>
+                    <img alt="logo Espacio Jardín" src={`/img/logo.jpg`}/>
+                </Link>
             </div>
             <nav>
                 <ul className="list-container">
                     <li className="navbar-texto">
-                        <Link to={"/categoria/plantas"} className="category-button">
+                        <Link to={"/categoria/Semillas"} className="category-button">
+                        Semillas
+                        </Link>
+                    </li>
+                    <li className="navbar-texto">
+                        <Link to={"/categoria/Plantas"} className="category-button">
                         Plantas
                         </Link>
                     </li>
                     <li className="navbar-texto">
-                        <Link to={"/categoria/accesorios"} className="category-button">
+                        <Link to={"/categoria/Accesorios"} className="category-button">
                             Accesorios
                         </Link>
                     </li>
