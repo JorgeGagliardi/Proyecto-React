@@ -1,9 +1,10 @@
 import "./style.css";
-import ItemCount from "../../components/ItemCount/ItemCount";
 import ItemList from "../../components/ItemList/ItemList";
 import {useParams} from "react-router-dom";
-import {productList} from "../../data/products";
 import {useEffect, useState} from "react";
+import { collection, getDocs } from "firebase/firestore";
+import {db} from "../../firebase/config";
+import { CartContext } from '../../context/CartContext';
 
 const ItemListContainer = () => {
     const {id} = useParams();
@@ -11,21 +12,25 @@ const ItemListContainer = () => {
     const [productsView, setProductsView] = useState();
 
     useEffect ( () => {
-        setProductsView(productList);
-        if (id) {
-            const filteredProducts = productList.filter((product) => {
-                return product.categoria === id;
-            });
-            setProductsView(filteredProducts);
-        } else {
-            setProductsView(productList);
-        }
+
+        const productosRef = collection(db, "productos");
+        getDocs(productosRef)
+            .then((resp) => {
+                setProductsView(resp.docs.map((doc) => {return { ...doc.data(), id: doc.id }}));
+                if (id) {
+                    const filteredProducts = resp.docs.map((doc) => {return { ...doc.data(), id: doc.id }}).filter((product) => {
+                        return product.categoria === id;
+                    });
+                    setProductsView(filteredProducts);
+                } else {
+                    setProductsView(resp.docs.map((doc) => {return { ...doc.data(), id: doc.id }}));
+                }
+            })
     }, [id]);
 
     return (
     <div>
         <h1 className="titulo-texto">Tienda</h1>
-        <ItemCount/>
         <ItemList productsL={productsView} />
     </div>
     );
